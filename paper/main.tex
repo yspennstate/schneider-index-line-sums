@@ -1,0 +1,242 @@
+\documentclass[11pt]{amsart}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1.15in]{geometry}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\arxiv}[1]{\href{https://arxiv.org/abs/#1}{arXiv:\nolinkurl{#1}}}
+\DeclareMathOperator{\conv}{conv}
+\setlength{\emergencystretch}{2.5em}
+
+\begin{document}
+
+\title[The Schneider index of Minkowski sums on the line]{The Schneider non-convexity index of Minkowski sums on the
+line}
+\author{Yitzchak Shmalo}
+\date{26 November 2026}
+\hypersetup{pdftitle={The Schneider non-convexity index of Minkowski sums on the line},pdfauthor={Yitzchak Shmalo}}
+\address{Einstein Institute of Mathematics, The Hebrew University of Jerusalem, Jerusalem, Israel}
+\email{yspennstate@gmail.com}
+\subjclass[2020]{52A40, 11B13}
+\keywords{Schneider non-convexity index, Minkowski sum, sumset, convexification}
+
+\begin{abstract}
+The Schneider non-convexity index of a compact set $A\subset\mathbb{R}^n$ is the least $\lambda\ge0$ for which
+$A+\lambda\conv A$ is convex. For compact sets $A_1,\dots,A_k\subset\mathbb{R}$ with prescribed indices
+$c_1\le\dots\le c_k$ we show that the index of $A_1+\dots+A_k$ is at least $(1-B)_+/(2^k-1+B)$, where
+$B=\sum_{i=1}^k 2^{k-i}(1-c_i)/(1+c_i)$. Meyer constructed sets attaining this value and proved the bound for $k=2$;
+the bound for every $k$ answers his question on the minimal index of a $k$-fold sum on the line. As a consequence, the
+least number of compact subsets of the line with common index $c<1$ whose sum is convex is
+$1+\lceil\log_2(1/(1-c))\rceil$, which Meyer derived under the assumption that his sets attain the minimum.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+
+For a nonempty compact set $A\subset\mathbb{R}^n$, Schneider~\cite{Sch} defined
+\[
+  c(A)=\inf\{\lambda\ge0:\ A+\lambda\conv A \text{ is convex}\}.
+\]
+It satisfies $0\le c(A)\le n$, it vanishes exactly on convex sets, and it is invariant under affine bijections. Its
+behaviour under Minkowski addition is part of the study of the convexifying effect of summation, surveyed by
+Fradelizi, Madiman, Marsiglietti and Zvavitch~\cite{FMMZ}. Meyer~\cite{MeyerArx,MeyerJIA} asked how small the index
+of a sum can be when the indices of the summands are prescribed. For two compact subsets of the line he found the exact
+answer~\cite[Theorem~1.2]{MeyerJIA}. For $k$ summands on the line he posed the problem of determining
+\[
+  F_1(c_1,\dots,c_k)=\min\{c(A_1+\dots+A_k):\ A_i\subset\mathbb{R}\text{ nonempty compact},\ c(A_i)=c_i\}
+\]
+in~\cite[Problem~2.2]{MeyerArx}, and constructed sets that give an upper bound~\cite[Proposition~2.1]{MeyerArx}. We
+prove that his upper bound is the answer.
+
+Throughout, $r(c)=(1-c)/(1+c)$, which maps $[0,1]$ onto $[0,1]$ and is decreasing, and $u_+=\max(u,0)$.
+
+\begin{theorem}\label{thm:main}
+Let $k\ge1$ and $0\le c_1\le c_2\le\dots\le c_k\le1$. Put $r_i=r(c_i)$, $M=2^k-1$ and
+\[
+  B=\sum_{i=1}^k 2^{k-i}r_i .
+\]
+If $A_1,\dots,A_k\subset\mathbb{R}$ are nonempty compact sets with $c(A_i)=c_i$, then
+\[
+  c(A_1+\dots+A_k)\ \ge\ \frac{(1-B)_+}{M+B},
+\]
+and equality holds for the sets of Meyer described in Section~\ref{sec:attain}. Hence
+$F_1(c_1,\dots,c_k)=(1-B)_+/(M+B)$.
+\end{theorem}
+
+Since $r$ is decreasing, $r_1\ge\dots\ge r_k$, so $B$ is the largest value of $\sum_j2^{j-1}r_{\sigma(j)}$ over
+permutations $\sigma$, and the theorem says that the inequality of \cite[Proposition~2.1]{MeyerArx} is an equality.
+For $k=2$ it is \cite[Theorem~1.2]{MeyerJIA}. For example, prescribed indices $(3/4,1,1)$ give $B=4/7$ and minimal
+index $3/53$, while $(1/2,1,1)$ give $B=4/3$, so a sum of three such sets can be an interval. For equal indices the theorem reads
+$F_1(c,\dots,c)=\bigl(1-2^{k-1}(1-c)\bigr)_+/(2^k-1)$.
+
+Meyer also introduced the induced measure of non-convexity: for $x\in[0,n]$ let $N_x$ be the least $k$ such that there
+are compact sets $A_1,\dots,A_k\subset\mathbb{R}^n$, each of index $x$, whose sum is convex, and set
+$c^\ast(A)=N_{c(A)}-1$~\cite[Definition~2.1]{MeyerArx}. He showed that if equality holds in his Proposition~2.1, then
+$c^\ast(A)=\lceil\log_2(1/(1-c(A)))\rceil$ for compact $A\subset\mathbb{R}$ with $c(A)<1$
+\cite[Proposition~2.2]{MeyerArx}. Theorem~\ref{thm:main} removes the assumption.
+
+\begin{corollary}\label{cor:induced}
+For $0\le x<1$ and $n=1$, $N_x=1+\lceil\log_2(1/(1-x))\rceil$, and $N_1=\infty$. Consequently every nonempty compact
+$A\subset\mathbb{R}$ with $c(A)<1$ has $c^\ast(A)=\lceil\log_2(1/(1-c(A)))\rceil$, and $c^\ast(A)=\infty$ if $c(A)=1$.
+\end{corollary}
+
+\section{Gaps and the index on the line}
+
+Let $A\subset\mathbb{R}$ be nonempty and compact with $\conv A=[a,b]$, and write $D(A)=b-a$. A \emph{gap} of $A$ is a
+bounded component of $\mathbb{R}\setminus A$, that is, an open interval $(u,v)$ with $u,v\in A$ and $(u,v)\cap A=\emptyset$.
+Let $g(A)$ be the supremum of the lengths of the gaps of $A$, with $g(A)=0$ if there are none.
+
+\begin{lemma}\label{lem:gap}
+Let $h\ge0$. Then $A+[0,h]=[a,b+h]$ if every gap of $A$ has length at most $h$, and $A+[0,h]$ is not convex otherwise.
+If $g(A)>0$, some gap has length $g(A)$. Consequently $c(A)=g(A)/D(A)$ when $D(A)>0$, and $c(A)=0$ when $A$ is a point.
+\end{lemma}
+
+\begin{proof}
+Suppose every gap has length at most $h$, and let $x\in[a,b+h]$. The point $y=\max(A\cap[a,x])$ exists. If $y=x$ or
+$y=b$ then $x\in A+[0,h]$. Otherwise $y<x<b$, so $y<\min(A\cap(x,b])=:y'$ and $(y,y')$ is a gap containing $x$; then
+$x-y<y'-y\le h$. Conversely, if $(u,v)$ is a gap with $v-u>h$, the point $x=u+h+\tfrac12(v-u-h)$ lies in
+$[a,b+h]$, and any $y\in A$ with $x-h\le y\le x$ would lie in $(u,v)$; so $A+[0,h]$ misses $x$ while it contains $a$
+and $b+h$.
+
+The gaps are disjoint subintervals of $[a,b]$, so only finitely many have length greater than
+$g(A)/2$, and the supremum over those is a maximum. Finally $A+\lambda\conv A$ is a translate of $A+[0,\lambda D(A)]$,
+so it is convex exactly when $\lambda D(A)\ge g(A)$.
+\end{proof}
+
+\section{The lower bound}
+
+Let $A_1,\dots,A_k$ be as in Theorem~\ref{thm:main}. The index is invariant under translation, so we may assume
+$\conv A_i=[0,D_i]$. Put $S=A_1+\dots+A_k$, so that $\conv S=[0,D]$ with $D=\sum_iD_i$, and let $G=g(S)$ and $T=D+G$.
+If $D=0$ every $A_i$ is a point, $c_i=0$ for all $i$, $B=M\ge1$ and both sides of the inequality are $0$. Assume $D>0$.
+
+For each $i$ choose $0\le p_i\le q_i\le D_i$ with $q_i-p_i=g(A_i)$ and $(p_i,q_i)\cap A_i=\emptyset$: a gap of
+maximal length when $g(A_i)>0$ (Lemma~\ref{lem:gap}), and $p_i=q_i=0$ otherwise. Put $L_i=[0,p_i]$ and
+$R_i=[q_i,D_i]$. Then $A_i\subset L_i\cup R_i$, and since $g(A_i)=c_iD_i$ by Lemma~\ref{lem:gap} (also when $D_i=0$),
+\begin{equation}\label{eq:sides}
+  |L_i|+|R_i|=(1-c_i)D_i .
+\end{equation}
+
+\begin{lemma}\label{lem:cover}
+Let $w_i=\tfrac12(1+c_i)D_i$. For every nonempty $J\subset\{1,\dots,k\}$,
+\[
+  \sum_{i\in J}w_i\ \le\ \bigl(1-2^{-|J|}\bigr)\,T .
+\]
+\end{lemma}
+
+\begin{proof}
+By Lemma~\ref{lem:gap}, $S+[0,G]=[0,T]$. For each choice $\varepsilon=(\varepsilon_i)_{i\in J}$ with
+$\varepsilon_i\in\{L_i,R_i\}$ let
+\[
+  I_\varepsilon=\sum_{i\in J}\varepsilon_i+\sum_{i\notin J}[0,D_i]+[0,G],
+\]
+a closed interval of length $\sum_{i\in J}|\varepsilon_i|+\sum_{i\notin J}D_i+G$. Every point of $S$ has the form
+$\sum_ia_i$ with $a_i\in A_i\subset L_i\cup R_i$, so $S+[0,G]\subset\bigcup_\varepsilon I_\varepsilon$. There are
+$2^{|J|}$ choices, and for each $i\in J$ each of $L_i,R_i$ occurs in exactly half of them. By~\eqref{eq:sides},
+\[
+  T\le\sum_\varepsilon|I_\varepsilon|
+   =2^{|J|}\Bigl(G+\sum_{i\notin J}D_i\Bigr)+2^{|J|-1}\sum_{i\in J}(1-c_i)D_i
+   =2^{|J|}\Bigl(T-\sum_{i\in J}w_i\Bigr),
+\]
+where the last step uses $G+\sum_{i\notin J}D_i=T-\sum_{i\in J}D_i$.
+\end{proof}
+
+\begin{proof}[Proof of the inequality in Theorem~\ref{thm:main}]
+Put $v_i=2/(1+c_i)=1+r_i$ for $1\le i\le k$ and $v_{k+1}=0$. Since the $c_i$ increase, $v_1\ge v_2\ge\dots\ge
+v_{k+1}$. With $W_j=\sum_{i\le j}w_i$, summation by parts and Lemma~\ref{lem:cover} for the sets $\{1,\dots,j\}$ give
+\[
+  D=\sum_{i=1}^kv_iw_i=\sum_{j=1}^k(v_j-v_{j+1})W_j
+   \le T\sum_{j=1}^k(v_j-v_{j+1})\bigl(1-2^{-j}\bigr)
+   =T\sum_{i=1}^k2^{-i}v_i .
+\]
+Here $\sum_i2^{-i}v_i=\sum_i2^{-i}+\sum_i2^{-i}r_i=2^{-k}(M+B)$. Hence $2^kD\le(D+G)(M+B)$, that is,
+\[
+  \frac GD\ \ge\ \frac{2^k-M-B}{M+B}=\frac{1-B}{M+B}.
+\]
+By Lemma~\ref{lem:gap}, $c(S)=G/D$, and $c(S)\ge0$.
+\end{proof}
+
+\begin{remark}
+Only the $k$ initial segments $\{1,\dots,j\}$ of the order of the indices enter the proof; the order of the diameters
+$D_i$ plays no role.
+\end{remark}
+
+\section{Attainment and the induced measure}\label{sec:attain}
+
+The following sets are those of \cite[Proposition~2.1]{MeyerArx}, listed in the order of the indices. Let
+$h_i=2^{k-i}$ and
+\[
+  A_i=[0,h_ir_i]\cup[h_i,h_i(1+r_i)]=\{0,h_i\}+[0,h_ir_i].
+\]
+If $c_i<1$ then $r_i>0$, $D(A_i)=h_i(1+r_i)$ and $g(A_i)=h_i(1-r_i)$, and if $c_i=1$ then $A_i=\{0,h_i\}$; in both
+cases $c(A_i)=(1-r_i)/(1+r_i)=c_i$ by Lemma~\ref{lem:gap}. The subset sums of $h_1,\dots,h_k$ are exactly
+$0,1,\dots,M$, so
+\[
+  A_1+\dots+A_k=\{0,1,\dots,M\}+[0,B]=\bigcup_{j=0}^M[j,j+B].
+\]
+This set has diameter $M+B$, and all its gaps have length $1-B$ if $B<1$, while it is the interval $[0,M+B]$ if $B\ge1$.
+Its index is $(1-B)_+/(M+B)$, which completes the proof of Theorem~\ref{thm:main}.
+
+\begin{proof}[Proof of Corollary~\ref{cor:induced}]
+Take $c_1=\dots=c_k=x$ and $r=r(x)$, so $B=Mr$. A sum of $k$ compact sets of index $x$ can be convex if and only if
+$F_1(x,\dots,x)=0$, because the minimum in Theorem~\ref{thm:main} is attained. If $x=1$ then $B=0$ and the minimum is
+$1/M>0$ for every $k$, so $N_1=\infty$. If $x<1$, the minimum vanishes if and only if $(2^k-1)(1-x)\ge1+x$, which
+rearranges to $2^{k-1}\ge1/(1-x)$, that is, $k\ge1+\log_2(1/(1-x))$. The least such integer is
+$1+\lceil\log_2(1/(1-x))\rceil$.
+\end{proof}
+
+\section*{Acknowledgements and funding}
+This work was done by AI agents, Claude (Anthropic) and Codex (OpenAI), connected to Math Brain~\cite{MathBrainRepo}
+and working together inside the Brain framework~\cite{BrainFramework}, a shared, persistent memory in which the agents
+record claims, proofs, failed attempts and methods, retrieve one another's results, coordinate who works on what, and
+audit each other's work. For more on the Brain and Math Brain, see the Math Brain paper~\cite{MathBrainPaper}, the Math
+Brain repository~\cite{MathBrainRepo} and the Brain framework repository~\cite{BrainFramework}.
+
+The research presented in this paper was supported by the European Research Council (ERC) under the European Union's
+Horizon Europe research and innovation programme (grant agreement No.~101041711), by the Simons Foundation as part of
+the Collaboration on the Mathematical and Scientific Foundations of Deep Learning, by Heights Labs, by Convex Nexus
+Capital, by the Israel Science Foundation (grant number 2258/19), and by the Israel Science Foundation (ISF Grant
+4101/25).
+
+\section*{Declaration of competing interest}
+The author holds equity in Heights Labs and in Convex Nexus Capital and has a management role at Convex Nexus Capital.
+These entities are included in the funding declaration above.
+
+\section*{Data availability}
+No data were generated or analysed in this work. A Python script that checks the inequality of
+Theorem~\ref{thm:main} in exact rational arithmetic on random finite unions of intervals with $k=2,3,4$, and checks
+that Meyer's sets attain it on a grid of index vectors, is \texttt{code/check\_line\_sums.py} at
+\url{https://github.com/yspennstate/schneider-index-line-sums/tree/v1.0}.
+
+\section*{Declaration of generative AI and AI-assisted technologies}
+This paper is part of a research project on AI proving problems. Codex agents (OpenAI) produced the proof, and Claude
+agents (Anthropic) checked the proof and the references and wrote the manuscript. The problem, the candidate formula
+and the extremal sets are due to Meyer~\cite{MeyerArx}. The author directed the work and is responsible for the content
+of the paper and for decisions concerning its dissemination.
+
+\begin{thebibliography}{9}
+\bibitem{FMMZ} M.~Fradelizi, M.~Madiman, A.~Marsiglietti and A.~Zvavitch, \emph{The convexification effect of
+Minkowski summation}, EMS Surv. Math. Sci. \textbf{5} (2018), no.~1--2, 1--64,
+\href{https://doi.org/10.4171/EMSS/26}{doi:10.4171/EMSS/26}; \arxiv{1704.05486}.
+\bibitem{MeyerArx} M.~Meyer, \emph{Measuring the convexity of compact sumsets with the Schneider non-convexity index},
+preprint, 2024, \arxiv{2405.00221v1}.
+\bibitem{MeyerJIA} M.~Meyer, \emph{Measuring the convexity of compact sumsets with the Schneider non-convexity index},
+J. Inequal. Appl. \textbf{2025} (2025), Paper No.~103,
+\href{https://doi.org/10.1186/s13660-025-03356-w}{doi:10.1186/s13660-025-03356-w}.
+\bibitem{Sch} R.~Schneider, \emph{A measure of convexity for compact sets}, Pacific J. Math. \textbf{58} (1975),
+no.~2, 617--625.
+\bibitem{MathBrainRepo} Y.~Shmalo, \emph{Math Brain: public snapshot, code and tests}, 2026,
+\url{https://github.com/yspennstate/math-brain-public/tree/5427734deee9be643d6dfbdd5e7d4baeeefe4a4a}.
+\bibitem{MathBrainPaper} Y.~Shmalo, \emph{Math Brain: shared, auditable memory for multi-agent mathematical
+research}, 2026, \href{https://doi.org/10.5281/zenodo.24150837}{doi:10.5281/zenodo.24150837},
+\url{https://github.com/yspennstate/math-brain-public/tree/5427734deee9be643d6dfbdd5e7d4baeeefe4a4a/papers/math-brain-2026-10-24}.
+\bibitem{BrainFramework} Y.~Shmalo, \emph{Brain Framework}, public software repository, 2026,
+\url{https://github.com/yspennstate/brain-framework-public/tree/46b935d26d5a2893f7790b60466387dd8da47ef5}.
+\end{thebibliography}
+
+\end{document}

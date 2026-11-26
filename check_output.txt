@@ -1,0 +1,8 @@
+generic unions, k=2: 2000 families, c(S) >= F in all; F > 0 in 147; min c(S)/F over those = 1.1174
+generic unions, k=3: 1500 families, c(S) >= F in all; F > 0 in 0; min c(S)/F over those = n/a
+generic unions, k=4: 400 families, c(S) >= F in all; F > 0 in 0; min c(S)/F over those = n/a
+two-cluster sets, k=2: 2000 families, c(S) >= F in all; F > 0 in 2000; min c(S)/F over those = 1.0104
+two-cluster sets, k=3: 1500 families, c(S) >= F in all; F > 0 in 1497; min c(S)/F over those = 1.2085
+two-cluster sets, k=4: 400 families, c(S) >= F in all; F > 0 in 290; min c(S)/F over those = 2.1593
+Meyer's sets attain F exactly on 714 sorted index vectors (k <= 4, grid 1/8)
+12000 two-piece families with prescribed indices, other gap positions and scales: none below F
