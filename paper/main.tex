@@ -46,8 +46,9 @@ For a nonempty compact set $A\subset\mathbb{R}^n$, Schneider~\cite{Sch} defined
 It satisfies $0\le c(A)\le n$, it vanishes exactly on convex sets, and it is invariant under affine bijections. Its
 behaviour under Minkowski addition is part of the study of the convexifying effect of summation, surveyed by
 Fradelizi, Madiman, Marsiglietti and Zvavitch~\cite{FMMZ}. Meyer~\cite{MeyerArx,MeyerJIA} asked how small the index
-of a sum can be when the indices of the summands are prescribed. For two compact subsets of the line he found the exact
-answer~\cite[Theorem~1.2]{MeyerJIA}, which is also Theorem~4.2.1 of his thesis~\cite{MeyerThesis}. For $k$ summands on the line he posed the problem of determining
+of a sum can be when the indices of the summands are prescribed. For two compact subsets of the line he proved a lower
+bound~\cite[Theorem~1.2]{MeyerJIA}, which is also Theorem~4.2.1 of his thesis~\cite{MeyerThesis}, and showed that it is
+attained~\cite[Corollary~1.2]{MeyerJIA}. For $k$ summands on the line he posed the problem of determining
 \[
   F_1(c_1,\dots,c_k)=\min\{c(A_1+\dots+A_k):\ A_i\subset\mathbb{R}\text{ nonempty compact},\ c(A_i)=c_i\}
 \]
@@ -71,7 +72,7 @@ $F_1(c_1,\dots,c_k)=(1-B)_+/(M+B)$.
 
 Since $r$ is decreasing, $r_1\ge\dots\ge r_k$, so $B$ is the largest value of $\sum_j2^{j-1}r_{\sigma(j)}$ over
 permutations $\sigma$, and the theorem says that the inequality of \cite[Proposition~2.1]{MeyerArx} is an equality.
-For $k=2$ it is \cite[Theorem~1.2]{MeyerJIA}. For example, prescribed indices $(3/4,1,1)$ give $B=4/7$ and minimal
+For $k=2$ it is \cite[Theorem~1.2 and Corollary~1.2]{MeyerJIA}. For example, prescribed indices $(3/4,1,1)$ give $B=4/7$ and minimal
 index $3/53$, while $(1/2,1,1)$ give $B=4/3$, so a sum of three such sets can be an interval. For equal indices the theorem reads
 $F_1(c,\dots,c)=\bigl(1-2^{k-1}(1-c)\bigr)_+/(2^k-1)$.
 
@@ -82,7 +83,7 @@ $c^\ast(A)=\lceil\log_2(1/(1-c(A)))\rceil$ for compact $A\subset\mathbb{R}$ with
 \cite[Proposition~2.2]{MeyerArx}. Theorem~\ref{thm:main} removes the assumption.
 
 \begin{corollary}\label{cor:induced}
-For $0\le x<1$ and $n=1$, $N_x=1+\lceil\log_2(1/(1-x))\rceil$, and $N_1=\infty$. Consequently every nonempty compact
+For $n=1$ and $0\le x<1$, $N_x=1+\lceil\log_2(1/(1-x))\rceil$, and $N_1=\infty$. Consequently every nonempty compact
 $A\subset\mathbb{R}$ with $c(A)<1$ has $c^\ast(A)=\lceil\log_2(1/(1-c(A)))\rceil$, and $c^\ast(A)=\infty$ if $c(A)=1$.
 \end{corollary}
 
@@ -98,8 +99,8 @@ If $g(A)>0$, some gap has length $g(A)$. Consequently $c(A)=g(A)/D(A)$ when $D(A
 \end{lemma}
 
 \begin{proof}
-Suppose every gap has length at most $h$, and let $x\in[a,b+h]$. The point $y=\max(A\cap[a,x])$ exists. If $y=x$ or
-$y=b$ then $x\in A+[0,h]$. Otherwise $y<x<b$, so $y<\min(A\cap(x,b])=:y'$ and $(y,y')$ is a gap containing $x$; then
+Suppose every gap has length at most $h$, and let $x\in[a,b+h]$. The point $y=\max(A\cap[a,x])$ exists. If $y=x$, or if
+$x\ge b$, in which case $y=b$ and $x\le b+h$, then $x\in A+[0,h]$. Otherwise $y<x<b$, so $y<\min(A\cap(x,b])=:y'$ and $(y,y')$ is a gap containing $x$; then
 $x-y<y'-y\le h$. Conversely, if $(u,v)$ is a gap with $v-u>h$, the point $x=u+h+\tfrac12(v-u-h)$ lies in
 $[a,b+h]$, and any $y\in A$ with $x-h\le y\le x$ would lie in $(u,v)$; so $A+[0,h]$ misses $x$ while it contains $a$
 and $b+h$.
@@ -162,13 +163,14 @@ By Lemma~\ref{lem:gap}, $c(S)=G/D$, and $c(S)\ge0$.
 \end{proof}
 
 \begin{remark}
-Only the $k$ initial segments $\{1,\dots,j\}$ of the order of the indices enter the proof; the order of the diameters
-$D_i$ plays no role.
+Only the $k$ initial segments $\{1,\dots,j\}$ of the order of the indices enter the proof, since the Abel summation
+applies Lemma~\ref{lem:cover} only to these sets $J$; the order of the diameters $D_i$ plays no role.
 \end{remark}
 
 \section{Attainment and the induced measure}\label{sec:attain}
 
-The following sets are those of \cite[Proposition~2.1]{MeyerArx}, listed in the order of the indices. Let
+The following sets are those of \cite[Proposition~2.1]{MeyerArx}, listed in the order of the indices, so that the set of largest scale has
+the smallest index (Meyer writes the scales as $2^{j-1}$, in the opposite order). Let
 $h_i=2^{k-i}$ and
 \[
   A_i=[0,h_ir_i]\cup[h_i,h_i(1+r_i)]=\{0,h_i\}+[0,h_ir_i].
@@ -211,7 +213,7 @@ These entities are included in the funding declaration above.
 No data were generated or analysed in this work. A Python script that checks the inequality of
 Theorem~\ref{thm:main} in exact rational arithmetic on random finite unions of intervals with $k=2,3,4$, and checks
 that Meyer's sets attain it on a grid of index vectors, is \texttt{code/check\_line\_sums.py} at
-\url{https://github.com/yspennstate/schneider-index-line-sums/tree/v1.0}.
+\url{https://github.com/yspennstate/schneider-index-line-sums/tree/v1.2}.
 
 \section*{Declaration of generative AI and AI-assisted technologies}
 This paper is part of a research project on AI proving problems. Codex agents (OpenAI) produced the proof, and Claude
@@ -222,17 +224,18 @@ of the paper and for decisions concerning its dissemination.
 
 \begin{thebibliography}{9}
 \bibitem{FMMZ} M.~Fradelizi, M.~Madiman, A.~Marsiglietti and A.~Zvavitch, \emph{The convexification effect of
-Minkowski summation}, EMS Surv. Math. Sci. \textbf{5} (2018), no.~1--2, 1--64,
+Minkowski summation}, EMS Surv. Math. Sci. \textbf{5} (2018), no.~1, 1--64,
 \href{https://doi.org/10.4171/EMSS/26}{doi:10.4171/EMSS/26}; \arxiv{1704.05486}.
 \bibitem{MeyerArx} M.~Meyer, \emph{Measuring the convexity of compact sumsets with the Schneider non-convexity index},
-preprint, 2024, \arxiv{2405.00221v1}.
+preprint, 2024, \arxiv{2405.00221v1}. Section~2 of this version, which contains Problem~2.2, is not part
+of~\cite{MeyerJIA}.
 \bibitem{MeyerJIA} M.~Meyer, \emph{Measuring the convexity of compact sumsets with the Schneider non-convexity index},
 J. Inequal. Appl. \textbf{2025} (2025), Paper No.~103,
 \href{https://doi.org/10.1186/s13660-025-03356-w}{doi:10.1186/s13660-025-03356-w}.
 \bibitem{MeyerThesis} M.~Meyer, \emph{On the additive properties of geometric measures}, Ph.D. thesis, Wichita State
 University, 2025, \url{https://soar.wichita.edu/items/4e29ae6d-2e51-43b0-ba7c-6afc89250359}.
 \bibitem{Sch} R.~Schneider, \emph{A measure of convexity for compact sets}, Pacific J. Math. \textbf{58} (1975),
-no.~2, 617--625.
+no.~2, 617--625, \href{https://doi.org/10.2140/pjm.1975.58.617}{doi:10.2140/pjm.1975.58.617}.
 \bibitem{MathBrainRepo} Y.~Shmalo, \emph{Math Brain: public snapshot, code and tests}, 2026,
 \url{https://github.com/yspennstate/math-brain-public/tree/5427734deee9be643d6dfbdd5e7d4baeeefe4a4a}.
 \bibitem{MathBrainPaper} Y.~Shmalo, \emph{Math Brain: shared, auditable memory for multi-agent mathematical
